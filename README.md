@@ -190,10 +190,123 @@ Then, just follow the "Models" steps above. These are the same models as the rat
 For bootstraps, 4 replicates returned negative TRESIZE parameters, just exlucded these when summarizing bootstraps
 
 
+
+## Testing no monomorphics
+
+The `-0` option does not take monomorphic sites into account when estimating parameters.
+
+Follow the steps above for setting up and running models, except that the FSC command will have `-0` added to the call in the slurm script.
+
+Note that the documentation says that it doens't use a rate in this mode and requires a fixed parameter, so for the rate analysis, this might just ignore the -0. 
+
+
+This did not seem better, estimates seemed weird, if anything.
+
+
+<br>
+<br>
+
 ### stairwayplot2
 
 * Directory `stairwayplot2`
 
 `Larix_stairwayplot2.ipynb` contains Jupyter notebook for estimation of population size through time for populations of *Larix* over multiple different datasets.
+
+
+### Testing out gadma
+
+For sequence length trying this:
+
+Original seq length from ipyrad stats file was:
+
+```
+snps matrix size: (33, 3732122)
+sequence matrix size: (33, 110256726)
+```
+
+
+and then vcf filtering log contains:
+
+
+```
+After filtering, kept 35749 out of a possible 3607614 Sites
+```
+
+So there's some other loss of sites I don't know about, but the starting numbers for SNP matrix size and possible sites in the vcf filtering log are similar enough. 
+
+So `35749 / 3607614 = 0.0099` so for sequence length, let's multiply by that
+
+
+`110256726 * 0.0099 = 1091542` for the length
+
+
+
+- Initial GADMA run
+
+`gadma_Larix_K3_params.txt` defines parameters, specifies only a single event/set of parameters between the splits and since the most recent split
+
+`gadma_Larix.slurm` runs that paramter set
+
+
+
+
+
+
+Plotting of final model failed initially, so had to make an edit in file `/home/sharrin2/.conda/envs/gadma/lib/python3.11/site-packages/moments/ModelPlot.py`
+
+```
+ax.grid(b=True, which="major", axis="y", color=gridline_color)
+```
+
+to 
+
+```
+ax.grid(visible=True, which="major", axis="y", color=gridline_color)
+```
+
+
+
+and:
+
+```
+    fig_kwargs = {
+        "figsize": (9.6, 5.4),
+        "dpi": 200,
+        "facecolor": fig_bg_color,
+        "edgecolor": fig_bg_color,
+    }
+
+```
+
+
+to 
+
+```
+    fig_kwargs = {
+        "dpi": 200,
+        "facecolor": fig_bg_color,
+        "edgecolor": fig_bg_color,
+    }
+
+```
+
+
+then it works to plot models.
+
+
+
+
+- Initial GADMA run
+
+`gadma_Larix_K3_2event_params.txt` defines parameters, specifies 2 events/sets of parameters between the splits and since the most recent split to allow for things like secondary contact or ancient migration that has ceased in either time period.
+
+`gadma_Larix_2event.slurm` runs that paramter set
+
+
+
+
+
+
+
 
 

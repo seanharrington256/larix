@@ -33,16 +33,29 @@ gen_time <- 180
 
 
 
+# ##### set up directories/files here
+# bestlhoods_dir <- "~/Active_Research/Larix_data_and_outs/stacks_31k_out/"
+# boot_in_dir <- "~/Active_Research/Larix_data_and_outs/stacks_31k_boot_inputs/" # directory where we will create input files to run bootstraps
+# sfs_file <- "~/Active_Research/Larix_data_and_outs/SFS_stacks/fastsimcoal2/LarStkK3_MSFS.obs" # directory of SFS input for original modeling
+# 
+# # Files from the bestrun of the best model
+# bestrun_dir <- paste0(bestlhoods_dir, "31k_AncMCoInExpK3")
+# 
+# # name the output file for converted parameter estimates
+# out_ests <- "Larix_Stacks_31k_pars_conv.csv"
+
+
 ##### set up directories/files here
-bestlhoods_dir <- "~/Active_Research/Larix_data_and_outs/stacks_31k_out/"
-boot_in_dir <- "~/Active_Research/Larix_data_and_outs/stacks_31k_boot_inputs/" # directory where we will create input files to run bootstraps
-sfs_file <- "~/Active_Research/Larix_data_and_outs/SFS_stacks/fastsimcoal2/LarStkK3_MSFS.obs" # directory of SFS input for original modeling
+bestlhoods_dir <- "~/Active_Research/Larix_data_and_outs/ipyrad_31k_no_mono/"
+# boot_in_dir <- "~/Active_Research/Larix_data_and_outs/stacks_31k_boot_inputs/" # directory where we will create input files to run bootstraps
+sfs_file <- "~/Active_Research/Larix_data_and_outs/X_OTHER_DATASETS_calibrations/SFS/fastsimcoal2/LarK3_MSFS.obs" # directory of SFS input for original modeling
 
 # Files from the bestrun of the best model
-bestrun_dir <- paste0(bestlhoods_dir, "31k_AncMCoInExpK3")
+# bestrun_dir <- paste0(bestlhoods_dir, "31k_AncMCoInExpK3")
 
 # name the output file for converted parameter estimates
-out_ests <- "Larix_Stacks_31k_pars_conv.csv"
+out_ests <- "Larix_ipyrad_31k_no_mono_pars_conv.csv"
+
 
 
 maxLfile <- list.files(path = bestrun_dir, pattern = "maxL.par$", full.names = TRUE)

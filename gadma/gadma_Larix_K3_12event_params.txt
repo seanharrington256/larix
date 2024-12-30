@@ -1,0 +1,18 @@
+# param_file
+Input data: Cascade-Rockies_North-Rockies_South.sfs
+Output directory: Larix_gadma_out_12ev
+Population labels: Cascade, Rockies_North, Rockies_South
+Initial structure : 1,1,2
+Final structure : 1,1,2
+Mutation rate: 2.158902e-07
+Time for generation: 180
+Sequence length: 1091542
+Linked SNP's : False
+Outgroup: False
+Engine : moments
+Units of time in drawing: thousand years
+model_plot_engine: moments
+
+# How many repeats to run and how many processes to use.
+Number of repeats: 105
+Number of processes: 53

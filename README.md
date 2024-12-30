@@ -291,20 +291,38 @@ to
 ```
 
 
-then it works to plot models.
+then it works to plot models using `python best_aic_model_moments_code.py`.
 
 
 
 
-- Initial GADMA run
+- Second GADMA run with 2 events since each split - i.e., 2 events between Cascades/Rockies split, 2 events between Rockies split and present. 
 
 `gadma_Larix_K3_2event_params.txt` defines parameters, specifies 2 events/sets of parameters between the splits and since the most recent split to allow for things like secondary contact or ancient migration that has ceased in either time period.
 
 `gadma_Larix_2event.slurm` runs that paramter set
 
 
+Still had to manually run `python best_aic_model_moments_code.py` not sure why.
+
+Looks pretty wild on first inspection - maybe too many events in the past between the two splits.
 
 
+
+
+- Third GADMA run with 1 event between splits, then 2 events since most recent split to present.
+
+
+`gadma_Larix_K3_12event_params.txt` defines parameters, specifies 2 events/sets of parameters between the most recent split and and the present allow for things like secondary contact or ancient migration that has ceased since that split.
+
+
+`gadma_Larix_12event.slurm` runs that paramter set
+
+- Another gadma run similar to the second, except keeping the number of events at 1,2,2 for both initial and final
+
+
+`gadma_Larix_K3_22event_params.txt` defines parameters
+`gadma_Larix_22event.slurm` runs that paramter set
 
 
 
